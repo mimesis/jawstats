@@ -27,8 +27,8 @@
  */
 
   header('Content-Type: text/html; charset="utf-8"', true);
-  //error_reporting(E_ALL|E_STRICT);
-  error_reporting(0);
+  error_reporting(E_ALL|E_STRICT);
+  //error_reporting(0);
   require_once "tmplFunctions.php";
   set_error_handler("ErrorHandler");
 
@@ -57,8 +57,7 @@
   }
 
   // get date range and valid log file
-  $year = date
-("Y");
+  $year = date("Y");
   if (isset($_GET["year"]) == true) { $year = $_GET["year"]; }
   $month = date("m");
   if (isset($_GET["month"]) == true) { $month = $_GET["month"]; }
@@ -118,7 +117,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <title>xxx <?php echo str_replace($searchPatternTitle, $replacePatternTitle, Lang("Statistics for [SITE] in [MONTH] [YEAR]")); ?></title>
+  <title><?php echo str_replace($searchPatternTitle, $replacePatternTitle, Lang("Statistics for [SITE] in [MONTH] [YEAR]")); ?></title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="themes/<?php echo $g_aConfig["theme"] ?>/style.css" type="text/css" />
   <script type="text/javascript" src="js/packed.js?<?php echo $gc_sJavascriptVersion ?>"></script>
